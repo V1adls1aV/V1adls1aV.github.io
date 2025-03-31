@@ -1,0 +1,22 @@
+.pop-up-content textarea {
+    max-width: calc(100% - 2rem);;
+    min-width: calc(100% - 2rem);;
+    min-height: 3rem;
+    height: 3rem;
+    max-height: 20dvh;
+}
+
+.pop-up-content button {
+    width: 100%;
+    transition: all 2s;
+}
+
+.pop-up-content input::placeholder,
+.pop-up-content textarea::placeholder {
+    color: black;
+}
+
+.pop-up-content input:focus,
+.pop-up-content textarea:focus {
+    outline-width: 0;
+}

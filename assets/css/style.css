@@ -1,0 +1,64 @@
+:root {
+    --header-height: 3.5rem;
+    --main-margin: 20px;
+    --plain-gradient: linear-gradient(90deg, #b343ed, #fe715c, #f8dd8e);
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+main {
+    margin: 0 auto;
+    padding-left: var(--main-margin);
+    padding-right: var(--main-margin);
+    overflow: hidden;
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+hr {
+    background: var(--plain-gradient);
+    height: 2px;
+    border: 0;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 1280px) {
+    main {
+        max-width: 1280px;
+        overflow: visible;
+    }
+}
+
+@media (max-width: 1279px) {
+    
+}
+
+@media (max-width: 768px) {
+    
+}
+
+@media (max-width: 568px) {
+    
+}
+
+
+.gradient-heading {
+    display: block;
+    font-size: 2rem;
+    background: var(--plain-gradient);
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+    white-space: nowrap;
+}
