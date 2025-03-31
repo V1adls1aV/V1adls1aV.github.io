@@ -1,0 +1,14 @@
+footer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    background-color: black;
+    color: white;
+    padding: 3rem;
+    line-height: 1.5rem;
+}
+
+footer picture img {
+    height: 2rem;
+}
