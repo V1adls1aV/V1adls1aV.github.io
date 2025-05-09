@@ -1,14 +1,19 @@
 footer {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-
     background-color: black;
     color: white;
     padding: 3rem;
     line-height: 1.5rem;
 }
 
-footer picture img {
+footer div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    margin: 0 auto;
+    width: min(100%, 1280px);
+}
+
+footer img {
     height: 2rem;
 }
