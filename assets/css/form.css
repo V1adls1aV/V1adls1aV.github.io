@@ -2,6 +2,7 @@
     display: none;
 
     width: 500px;
+    max-height: 80dvh;
 }
 
 .opened-form {
@@ -43,6 +44,8 @@
     max-width: calc(100% - 2rem);;
     min-width: calc(100% - 2rem);;
     min-height: 3rem;
+    height: 3rem;
+    max-height: 20dvh;
 }
 
 .form form button {
