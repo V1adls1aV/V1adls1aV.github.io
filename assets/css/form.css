@@ -2,7 +2,7 @@
     margin: 50px auto;
 
     background: transparent;
-    max-width: 500px;
+    max-width: min(500px, 90dvw);
 
     position: relative;
 }
@@ -11,14 +11,19 @@
     display: flex;
     flex-direction: column;
     row-gap: 30px;
+    padding: 1rem;
+    border-radius: 1rem;
+
+    background: rgba(200, 200, 200, 0.2);
+    backdrop-filter: blur(20px);
 }
 
 .form-container form input,
 .form-container form textarea,
 .form-container form button {
     width: calc(100% - 30px);
-    background: rgba(220, 220, 220, 0.2);
-    backdrop-filter: blur(10px);
+    background-color: white;
+    border-radius: 0.25rem;
     border: 0;
     color: black;
     padding: 15px;
@@ -29,20 +34,12 @@
 .form-container form textarea {
     max-width: calc(100% - 30px);;
     min-width: calc(100% - 30px);;
+    min-height: 3rem;
 }
 
 .form-container form button {
     width: 100%;
     transition: all 2s;
-}
-
-.form-container form button:hover {
-    background: linear-gradient(
-            90deg,
-            rgba(179, 67, 237, 0.2),
-            rgba(254, 113, 92, 0.2),
-            rgba(248, 221, 142, 0.2)
-    );
 }
 
 .form-container form input::placeholder,
@@ -53,46 +50,4 @@
 .form-container form input:focus,
 .form-container form textarea:focus {
     outline-width: 0;
-}
-
-
-.form-container::before {
-    content: "";
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: var(--plain-gradient);
-    clip-path: polygon(0 0, 75% 0, 0 75%);
-    border-radius: 100%;
-
-    transform: translateX(30%) translateY(-30%);
-    transition: all 1.3s ease-in-out;
-
-    z-index: -100;
-    rotate: -90deg;
-}
-
-.form-container:hover::before {
-    transform: translateX(-80%) translateY(80%);
-    rotate: -120deg;
-}
-
-.form-container::after {
-    content: "";
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: var(--plain-gradient);
-    clip-path: polygon(0 0, 75% 0, 0 75%);
-    border-radius: 100%;
-
-    transform: translateX(120%) translateY(-100%);
-    transition: all 1.3s ease-in-out;
-
-    z-index: -100;
-}
-
-.form-container:hover::after {
-    transform: translateX(0%) translateY(-100%);
-    rotate: -20deg;
 }
