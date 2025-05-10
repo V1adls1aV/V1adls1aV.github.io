@@ -102,7 +102,7 @@
     max-width: 70dvw;
     max-height: 70dvh;
 
-    overflow: auto;
+    overflow-y: auto;
     animation: scaleIn 0.3s ease forwards;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     backdrop-filter: none;
@@ -126,7 +126,19 @@
 
     width: 100%;
     height: 50vh;
-    justify-content: center;
+    position: relative;
+}
+
+.opened-card .image-carousel::after {
+    content: '';
+    flex: 1;
+    min-width: 0;
+}
+
+.opened-card .image-carousel::before {
+    content: '';
+    flex: 1;
+    min-width: 0;
 }
 
 .opened-card img {
