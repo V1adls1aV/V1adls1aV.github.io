@@ -71,6 +71,10 @@
     text-align: left;
 }
 
+.card .image-carousel :not(:first-child) {
+    display: none;
+}
+
 .card img {
     display: block;
     width: 100%;
@@ -82,19 +86,105 @@
 
 .card p {
     display: none;
-}
-
-.opened-card::before {
-    background: rgba(220, 220, 220, 0.2);
-    backdrop-filter: blur(10px);
-    position: fixed;
-    inset: 0;
-
-    z-index: 990;
+    padding: 1rem;
+    margin: 0;
+    line-height: 1.5rem;
 }
 
 .opened-card {
-    background-color: whitesmoke;
-
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
     z-index: 1000;
+
+    max-width: 70dvw;
+    max-height: 70dvh;
+
+    overflow: auto;
+    animation: scaleIn 0.3s ease forwards;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.opened-card .title {
+    padding: 1rem;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+}
+
+.opened-card .image-carousel {
+    display: flex;
+    flex-direction: row;
+
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+
+    width: 100%;
+    height: 50vh;
+    justify-content: center;
+}
+
+.opened-card img {
+    scroll-snap-align: center;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    border-radius: 0;
+    flex-shrink: 0;
+}
+
+.opened-card .image-carousel img:first-of-type {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+.opened-card .image-carousel img:last-of-type {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.opened-card .image-carousel :not(:first-child) {
+    display: block;
+}
+
+.opened-card p {
+    display: block;
+    flex-grow: 1;
+}
+
+body.card-opened {
+    overflow: hidden;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 990;
+    transition: opacity 0.3s ease;
+}
+
+body.card-opened::after {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: translate(-50%, -50%) scale(0.7);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
 }
