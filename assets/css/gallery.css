@@ -130,11 +130,13 @@
 .opened-card .image-carousel img:first-of-type {
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
+    margin-left: 1rem;
 }
 
 .opened-card .image-carousel img:last-of-type {
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
+    margin-right: 1rem;
 }
 
 .opened-card .image-carousel :not(:first-child) {
