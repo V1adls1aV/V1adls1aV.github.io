@@ -1,13 +1,19 @@
-.form-container {
-    margin: 50px auto;
+.form {
+    display: none;
 
-    background: transparent;
     max-width: min(500px, 90dvw);
-
-    position: relative;
 }
 
-.form-container form {
+.form .opened-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    animation: scaleIn 0.3s ease forwards;
+}
+
+.form form {
     display: flex;
     flex-direction: column;
     row-gap: 30px;
@@ -18,9 +24,9 @@
     backdrop-filter: blur(20px);
 }
 
-.form-container form input,
-.form-container form textarea,
-.form-container form button {
+.form form input,
+.form form textarea,
+.form form button {
     width: calc(100% - 30px);
     background-color: white;
     border-radius: 0.25rem;
@@ -31,23 +37,34 @@
     font-family: inherit;
 }
 
-.form-container form textarea {
+.form form textarea {
     max-width: calc(100% - 30px);;
     min-width: calc(100% - 30px);;
     min-height: 3rem;
 }
 
-.form-container form button {
+.form form button {
     width: 100%;
     transition: all 2s;
 }
 
-.form-container form input::placeholder,
-.form-container form textarea::placeholder {
+.form form input::placeholder,
+.form form textarea::placeholder {
     color: black;
 }
 
-.form-container form input:focus,
-.form-container form textarea:focus {
+.form form input:focus,
+.form form textarea:focus {
     outline-width: 0;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: translate(-50%, -50%) scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
 }

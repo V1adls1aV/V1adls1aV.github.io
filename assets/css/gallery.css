@@ -148,7 +148,7 @@
     flex-grow: 1;
 }
 
-body.card-opened {
+body.overlay {
     overflow: hidden;
 }
 
@@ -163,7 +163,7 @@ body::after {
     transition: opacity 0.3s ease;
 }
 
-body.card-opened::after {
+body.overlay::after {
     opacity: 1;
     pointer-events: auto;
 }
