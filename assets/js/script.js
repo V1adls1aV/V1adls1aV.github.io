@@ -7,7 +7,7 @@ Array.from(cards).forEach(card => {
 })
 
 Array.from(formLinks).forEach(anchor => {
-    anchor.addEventListener('click', () => openForm())
+    anchor.addEventListener('click', (e) => openForm(e))
 })
 
 // Manage cards
@@ -34,8 +34,12 @@ function closeCard(card) {
 
 
 // Manage form
-function openForm() {
+function openForm(e) {
     console.log("Open it")
+
+    if (e) {
+        e.stopPropagation()
+    }
 
     form.classList.add("opened-form")
     document.body.classList.add("overlay")
