@@ -10,15 +10,39 @@ function validateEnglishInput(input) {
   }
 }
 
+function updateButtonState(submitButton, state) {
+  switch (state) {
+    case 'sending':
+      submitButton.textContent = 'Sending...';
+      submitButton.disabled = true;
+      submitButton.style.backgroundColor = '#666';
+      submitButton.style.cursor = 'not-allowed';
+      break;
+    case 'sent':
+      submitButton.textContent = 'Already sent';
+      submitButton.disabled = true;
+      submitButton.style.backgroundColor = '#4CAF50';
+      submitButton.style.cursor = 'not-allowed';
+      break;
+    default:
+      submitButton.textContent = 'Join Fight Club';
+      submitButton.disabled = false;
+      submitButton.style.backgroundColor = '';
+      submitButton.style.cursor = '';
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector("form[name='Cooperation form']");
   const textInputs = form.querySelectorAll("input[type='text'], textarea");
+  const submitButton = form.querySelector('button[type="submit"]');
 
   textInputs.forEach(input => {
     input.addEventListener('input', () => validateEnglishInput(input));
   });
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
     let isValid = true;
 
     textInputs.forEach(input => {
@@ -29,7 +53,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (!isValid) {
-      event.preventDefault();
+      return;
+    }
+
+    updateButtonState(submitButton, 'sending');
+
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      updateButtonState(submitButton, 'sent');
+      
+      form.reset();
+    } catch (error) {
+      updateButtonState(submitButton, 'default');
+      console.error('Form submission failed:', error);
     }
   });
 });
