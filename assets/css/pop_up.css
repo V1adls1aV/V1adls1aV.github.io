@@ -38,9 +38,23 @@
     font-family: inherit;
 }
 
+.pop-up-content-block h3 {
+    display: block;
+    font-size: 1.5rem;
+    background: var(--plain-gradient);
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+    white-space: nowrap;
+}
+
 @media (max-width: 768px) {
     .pop-up {
         width: min(80dvw, 500px);
+    }
+
+    .pop-up-content-block h3 {
+        font-size: 1.25rem;
     }
 }
 
