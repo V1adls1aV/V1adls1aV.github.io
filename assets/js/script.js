@@ -11,9 +11,7 @@ Array.from(formLinks).forEach(anchor => {
 })
 
 // Manage cards
-function openCard(card) {
-    console.log("open card")
-    
+function openCard(card) {    
     card.classList.add("opened-card")
     document.body.classList.add("overlay")
     
@@ -26,8 +24,6 @@ function openCard(card) {
 }
 
 function closeCard(card) {
-    console.log("close card")
-
     card.classList.remove("opened-card")
     document.body.classList.remove("overlay")
 }
@@ -35,13 +31,11 @@ function closeCard(card) {
 
 // Manage form
 function openForm(e) {
-    console.log("Open it")
-
     if (e) {
         e.stopPropagation()
     }
 
-    form.classList.add("opened-form")
+    form.classList.add("opened-pop-up")
     document.body.classList.add("overlay")
     
     document.addEventListener('click', function closeOnClickOutside(e) {
@@ -53,8 +47,6 @@ function openForm(e) {
 }
 
 function closeForm() {
-    console.log("close it")
-
-    form.classList.remove("opened-form")
+    form.classList.remove("opened-pop-up")
     document.body.classList.remove("overlay")
 }
