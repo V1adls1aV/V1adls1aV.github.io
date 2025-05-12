@@ -19,7 +19,9 @@
   <link rel="stylesheet" href="assets/css/header.css">
   <link rel="stylesheet" href="assets/css/greeting.css">
   <link rel="stylesheet" href="assets/css/gallery.css">
+  <link rel="stylesheet" href="assets/css/pop_up.css">
   <link rel="stylesheet" href="assets/css/form.css">
+  <link rel="stylesheet" href="assets/css/notification.css">
   <link rel="stylesheet" href="assets/css/footer.css">
   <meta name="theme-color" content="#ffffff">
 
@@ -27,6 +29,8 @@
     href="https://fonts.googleapis.com/css?family=Montserrat:bold,ital,wght@0,400..800&display=swap">
 
   <script src="assets/js/script.js" defer></script>
+  <script src="assets/js/form_validator.js" defer></script>
+  <script src="assets/js/popup_timer.js" defer></script>
 </head>
 
 <body>
@@ -41,7 +45,7 @@
         Achievements
       </a>
 
-      <a class="navbar-item" href="#form">
+      <a class="navbar-item form-button">
         Contact me
       </a>
     </div>
@@ -58,7 +62,7 @@
             </div>
 
             <div class="profile-contacts">
-              <a class="form-anchor" href="#form">
+              <a class="form-anchor form-button">
                 Let's talk with me
                 <picture>
                   <source srcset="assets/img/icon/north_east.svg" type="image/svg+xml">
@@ -97,8 +101,6 @@
 
     <section class="main-content">
       <section id="achievements" class="achievements">
-        <h2>Achievements</h2>
-        <hr>
         <div class="card-gallery">
           <div class="card">
             <div class="title">
@@ -265,31 +267,42 @@
           </div>
         </div>
       </section>
-
-      <section id="form" class="form">
-        <h2>Contact me</h2>
-        <hr>
-
-        <div class="form-container">
-          <form action="/cooperation" name="Cooperation form" method="POST">
-            <label>
-              <input type="text" placeholder="Enter your name" required>
-            </label>
-            <label>
-              <input type="email" placeholder="Email" required>
-            </label>
-            <label>
-              <input type="tel" placeholder="Phone number">
-            </label>
-            <label>
-              <textarea placeholder="Explain your motivation" required></textarea>
-            </label>
-            <button type="submit">Join Fight Club</button>
-          </form>
-        </div>
-      </section>
     </section>
   </main>
+
+  <div id="form" class="pop-up">
+    <form action="/cooperation" name="Cooperation form" method="POST" class="pop-up-content">
+      <label>
+        <input class="pop-up-content-block" type="text" placeholder="Enter your name" required>
+      </label>
+      <label>
+        <input class="pop-up-content-block" type="email" placeholder="Email" required>
+      </label>
+      <label>
+        <input class="pop-up-content-block" type="tel" placeholder="Phone number">
+      </label>
+      <label>
+        <textarea class="pop-up-content-block" placeholder="Explain your motivation" required></textarea>
+      </label>
+      <button class="pop-up-content-block" type="submit">Join Fight Club</button>
+    </form>
+  </div>
+
+  <div id="proposal" class="pop-up">
+    <div class="pop-up-content">
+      <div class="pop-up-content-block">
+        <h3>
+          You have a chance to explore...
+        </h3>
+      </div>
+
+      <span class="pop-up-content-block">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etex ea
+        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillu
+      </span>
+    </div>
+  </div>
 
   <footer>
     <div>
