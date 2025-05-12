@@ -5,15 +5,37 @@ footer {
     line-height: 1.5rem;
 }
 
-footer div {
+.footer-container {
     display: flex;
-    align-items: center;
-    gap: 20px;
-
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 3rem;
+    
     margin: 0 auto;
     width: min(100%, 1280px);
 }
 
-footer img {
+.footer-block {
+    font-size: 1.1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+#footer-logo {
+    flex-direction: row;
+    align-items: center;
+}
+
+.footer-block img {
+    display: block;
     height: 2rem;
+    padding-right: 1rem;
+}
+
+.footer-block .gradient-heading {
+    font-size: 2.5rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1rem;
 }

@@ -21,7 +21,6 @@
   <link rel="stylesheet" href="assets/css/gallery.css">
   <link rel="stylesheet" href="assets/css/pop_up.css">
   <link rel="stylesheet" href="assets/css/form.css">
-  <link rel="stylesheet" href="assets/css/notification.css">
   <link rel="stylesheet" href="assets/css/footer.css">
   <meta name="theme-color" content="#ffffff">
 
@@ -31,6 +30,8 @@
   <script src="assets/js/script.js" defer></script>
   <script src="assets/js/form_validator.js" defer></script>
   <script src="assets/js/popup_timer.js" defer></script>
+  <script src="assets/js/counter.js" defer></script>
+  <script src="assets/js/navbar_scroll.js" defer></script>
 </head>
 
 <body>
@@ -96,6 +97,9 @@
             <img class="owner-photo" src="assets/img/main/owner_photo.jpg" alt="Owner Photo">
           </picture>
         </div>
+        <div class="scroll-indicator">
+          <div class="scroll-arrow"></div>
+        </div>
       </div>
     </section>
 
@@ -104,7 +108,7 @@
         <div class="card-gallery">
           <div class="card">
             <div class="title">
-              <h3>3+</h3>
+              <h3 class="gradient-heading">3+</h3>
               <h4>Years experience in the back-end development</h4>
             </div>
             <div class="image-carousel">
@@ -131,7 +135,7 @@
           </div>
           <div class="card">
             <div class="title">
-              <h3>42+</h3>
+              <h3 class="gradient-heading">42+</h3>
               <h4>Mentees are trained</h4>
             </div>
             <div class="image-carousel">
@@ -151,7 +155,7 @@
           </div>
           <div class="card">
             <div class="title">
-              <h3>52+</h3>
+              <h3 class="gradient-heading">52+</h3>
               <h4>Books read</h4>
             </div>
             <div class="image-carousel">
@@ -167,7 +171,7 @@
           </div>
           <div class="card">
             <div class="title">
-              <h3>300</h3>
+              <h3 class="gradient-heading">300</h3>
               <h4>k / nanosec</h4>
             </div>
             <div class="image-carousel">
@@ -187,7 +191,7 @@
           </div>
           <div class="card">
             <div class="title">
-              <h3>Sport</h3>
+              <h3 class="gradient-heading">Sport</h3>
               <h4>Swimming master</h4>
             </div>
             <div class="image-carousel">
@@ -203,7 +207,7 @@
           </div>
           <div class="card">
             <div class="title">
-              <h3>Java</h3>
+              <h3 class="gradient-heading">Java</h3>
               <h4>Spring framework</h4>
             </div>
             <div class="image-carousel">
@@ -223,7 +227,7 @@
           </div>
           <div class="card">
             <div class="title">
-              <h3>Python</h3>
+              <h3 class="gradient-heading">Python</h3>
               <h4>Designing microservices for Nearby project</h4>
             </div>
             <div class="image-carousel">
@@ -240,7 +244,7 @@
           </div>
           <div class="card">
             <div class="title">
-              <h3>Bike</h3>
+              <h3 class="gradient-heading">Bike</h3>
               <h4>Cycling through the Moscow</h4>
             </div>
             <div class="image-carousel">
@@ -254,7 +258,7 @@
           </div>
           <div class="card">
             <div class="title">
-              <h3>Frontend</h3>
+              <h3 class="gradient-heading">Frontend</h3>
               <h4>Doing my homework</h4>
             </div>
             <div class="image-carousel">
@@ -291,7 +295,7 @@
   <div id="proposal" class="pop-up">
     <div class="pop-up-content">
       <div class="pop-up-content-block">
-        <h3>
+        <h3 class="gradient-heading">
           You have a chance to explore...
         </h3>
       </div>
@@ -305,14 +309,28 @@
   </div>
 
   <footer>
-    <div>
-      <picture>
-        <source srcset="assets/img/icon/logo.svg" type="image/svg+xml">
-        <img src="assets/img/icon/logo.png" alt="The soap.">
-      </picture>
+    <div class="footer-container">
+      <div id="footer-logo" class="footer-block">
+        <picture>
+          <source srcset="assets/img/icon/logo.svg" type="image/svg+xml">
+          <img src="assets/img/icon/logo.png" alt="The soap.">
+        </picture>
+        
+        <span>
+        The soap corporation<br>
+        &copy; All rights reserved
+        </span>
+      </div>
 
-      The soap corporation<br>
-      &copy; All rights reserved
+      <div class="footer-block">
+        <span>
+        Time to a 100km bike trip
+        </span>
+
+        <h3 id="counter" class="gradient-heading">
+          42 days 12h
+        </h3>
+      </div>
     </div>
   </footer>
 

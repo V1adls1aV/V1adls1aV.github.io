@@ -17,7 +17,6 @@ main {
     margin: 0 auto;
     padding-left: var(--main-margin);
     padding-right: var(--main-margin);
-    padding-top: calc(var(--header-height) + var(--main-margin));
     overflow: hidden;
 }
 
@@ -37,6 +36,7 @@ hr {
 @media (min-width: 1280px) {
     main {
         max-width: 1280px;
+        overflow: visible;
     }
 }
 
@@ -50,4 +50,15 @@ hr {
 
 @media (max-width: 568px) {
     
+}
+
+
+.gradient-heading {
+    display: block;
+    font-size: 2rem;
+    background: var(--plain-gradient);
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+    white-space: nowrap;
 }
