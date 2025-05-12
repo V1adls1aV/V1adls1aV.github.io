@@ -36,6 +36,7 @@ hr {
 @media (min-width: 1280px) {
     main {
         max-width: 1280px;
+        overflow: visible;
     }
 }
 
