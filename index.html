@@ -19,7 +19,9 @@
   <link rel="stylesheet" href="assets/css/header.css">
   <link rel="stylesheet" href="assets/css/greeting.css">
   <link rel="stylesheet" href="assets/css/gallery.css">
+  <link rel="stylesheet" href="assets/css/pop_up.css">
   <link rel="stylesheet" href="assets/css/form.css">
+  <link rel="stylesheet" href="assets/css/notification.css">
   <link rel="stylesheet" href="assets/css/footer.css">
   <meta name="theme-color" content="#ffffff">
 
@@ -270,24 +272,30 @@
   <div id="form" class="pop-up">
     <form action="/cooperation" name="Cooperation form" method="POST" class="pop-up-content">
       <label>
-        <input type="text" placeholder="Enter your name" required>
+        <input class="pop-up-content-block" type="text" placeholder="Enter your name" required>
       </label>
       <label>
-        <input type="email" placeholder="Email" required>
+        <input class="pop-up-content-block" type="email" placeholder="Email" required>
       </label>
       <label>
-        <input type="tel" placeholder="Phone number">
+        <input class="pop-up-content-block" type="tel" placeholder="Phone number">
       </label>
       <label>
-        <textarea placeholder="Explain your motivation" required></textarea>
+        <textarea class="pop-up-content-block" placeholder="Explain your motivation" required></textarea>
       </label>
-      <button type="submit">Join Fight Club</button>
+      <button class="pop-up-content-block" type="submit">Join Fight Club</button>
     </form>
   </div>
 
   <div id="proposal" class="pop-up">
     <div class="pop-up-content">
+      <span class="pop-up-content-block">
+        The first notification.
+      </span>
 
+      <span class="pop-up-content-block">
+        The second notification.
+      </span>
     </div>
   </div>
 
