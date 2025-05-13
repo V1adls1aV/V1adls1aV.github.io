@@ -1,18 +1,15 @@
 const cards = document.getElementsByClassName("card")
 
 Array.from(cards).forEach(card => {
-    card._openCallback = function openOnClick() {
-        card.removeEventListener("click", openOnClick);
-        delete card._openCallback;
-        openCard(card);
-    };
-    card.addEventListener("click", card._openCallback);
+    card.addEventListener('click', (e) => openCard(card, e));
 })
 
 // Manage cards
-function openCard(card) {
-    console.log("Open card")
-    console.log(card)
+function openCard(card, e) {
+    // Prevent open/closing the card
+    if (e) {
+        e.stopPropagation();
+    }
 
     card.classList.add("opened-card");
     document.body.classList.add("overlay");
@@ -20,33 +17,28 @@ function openCard(card) {
     // Create a custom property to manage closing independently of the method from which I want to close it
     card._closeCallback = function closeOnClickOutside(e) {
         if (!card.contains(e.target)) {
-            document.removeEventListener("click", closeOnClickOutside);
-            delete card._closeCallback;
-            closeCard(card);
+            closeCard(card, e);
         }
     }
+    document.addEventListener('click', card._closeCallback);
 
-    document.addEventListener("click", card._closeCallback);
+    // Choose which arrow not to show
+    if (!card.previousElementSibling) card.querySelector(".left-switch").style.display = "none";
+    if (!card.nextElementSibling) card.querySelector(".right-switch").style.display = "none";
 }
 
-function closeCard(card) {
-    console.log("Close card")
-    console.log(card)
+function closeCard(card, e) {
+    // Prevent open/closing the card
+    if (e) {
+        e.stopPropagation();
+    }
 
-    document.body.classList.remove("overlay");
     card.classList.remove("opened-card");
+    document.body.classList.remove("overlay");
 
     // Cleanup event listener and the card field
     document.removeEventListener('click', card._closeCallback);
     delete card._closeCallback;
-
-    // Add open callback again.
-    card._openCallback = function openOnClick() {
-        card.removeEventListener("click", openOnClick);
-        delete card._openCallback;
-        openCard(card);
-    };
-    card.addEventListener("click", card._openCallback);
 }
 
 // Manage switching between cards
@@ -54,28 +46,28 @@ const leftSwitches = document.getElementsByClassName("left-switch");
 const rightSwitches = document.getElementsByClassName("right-switch");
 
 Array.from(leftSwitches).forEach(leftSwitch => {
-    leftSwitch.addEventListener('click', () => {
-        switchToLeft(leftSwitch.closest(".card"));
+    leftSwitch.addEventListener('click', (e) => {
+        switchToLeft(leftSwitch.closest(".card"), e);
     })
 })
 
 Array.from(rightSwitches).forEach(rightSwitch => {
-    rightSwitch.addEventListener('click', () => {
-        switchToRight(rightSwitch.closest(".card"));
+    rightSwitch.addEventListener('click', (e) => {
+        switchToRight(rightSwitch.closest(".card"), e);
     })
 })
 
-function switchToLeft(card) {
+function switchToLeft(card, e) {
     let newCard = card.previousElementSibling;
-    replaceCardWith(card, newCard);
+    replaceCardWith(card, newCard, e);
 }
 
-function switchToRight(card) {
+function switchToRight(card, e) {
     let newCard = card.nextElementSibling;
-    replaceCardWith(card, newCard);
+    replaceCardWith(card, newCard, e);
 }
 
-function replaceCardWith(currentCard, newCard) {
-    closeCard(currentCard);
-    // openCard(newCard);
+function replaceCardWith(currentCard, newCard, e) {
+    closeCard(currentCard, e);
+    openCard(newCard, e);
 }
