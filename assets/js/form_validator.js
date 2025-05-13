@@ -32,15 +32,15 @@ function updateButtonState(submitButton, state) {
     }
 }
 
-const form = document.querySelector("form[name='Cooperation form']");
-const textInputs = form.querySelectorAll("input[type='text'], textarea");
-const submitButton = form.querySelector('button[type="submit"]');
+const formToValidate = document.querySelector("form[name='Cooperation form']");
+const textInputs = formToValidate.querySelectorAll("input[type='text'], textarea");
+const submitButton = formToValidate.querySelector('button[type="submit"]');
 
 textInputs.forEach(input => {
     input.addEventListener('input', () => validateEnglishInput(input));
 });
 
-form.addEventListener("submit", async (event) => {
+formToValidate.addEventListener("submit", async (event) => {
     event.preventDefault();
     let isValid = true;
 
@@ -62,7 +62,7 @@ form.addEventListener("submit", async (event) => {
 
         updateButtonState(submitButton, 'sent');
 
-        form.reset();
+        formToValidate.reset();
     } catch (error) {
         updateButtonState(submitButton, 'default');
         console.error('Form submission failed:', error);

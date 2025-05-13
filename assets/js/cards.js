@@ -1,31 +1,22 @@
 const cards = document.getElementsByClassName("card")
+let openedCard = null;
 
 Array.from(cards).forEach(card => {
     card.addEventListener('click', () => openCard(card));
 })
 
-// Manage cards
 function openCard(card) {
+    if (openedCard) closeCard(openedCard);
+
     card.classList.add("opened-card");
     document.body.classList.add("overlay");
-
-    // Create a custom property to manage closing independently of the method from which I want to close it
-    card._closeCallback = function closeOnClickOutside(e) {
-        if (!card.contains(e.target)) {
-            closeCard(card);
-        }
-    }
-
-    document.addEventListener('click', card._closeCallback);
+    openedCard = card;
 }
 
-function closeCard(card) {
-    card.classList.remove("opened-card");
+function closeCard() {
+    openedCard.classList.remove("opened-card");
     document.body.classList.remove("overlay");
-
-    // Cleanup event listener and the card field
-    document.removeEventListener('click', card._closeCallback);
-    delete card._closeCallback
+    openedCard = null;
 }
 
 // Manage switching between cards
@@ -45,16 +36,9 @@ Array.from(rightSwitches).forEach(rightSwitch => {
 })
 
 function switchToLeft(card) {
-    let newCard = card.previousElementSibling;
-    replaceCardWith(card, newCard);
+    openCard(card.previousElementSibling);
 }
 
 function switchToRight(card) {
-    let newCard = card.nextElementSibling;
-    replaceCardWith(card, newCard);
-}
-
-function replaceCardWith(currentCard, newCard) {
-    closeCard(currentCard);
-    openCard(newCard);
+    openCard(card.nextElementSibling);
 }
