@@ -4,29 +4,28 @@ Array.from(cards).forEach(card => {
     card.addEventListener('click', () => openCard(card));
 })
 
-function buildCloseCallback(card) {
-    return (
-        function closeOnClickOutside(e) {
-            if (!card.contains(e.target)) {
-                closeCard(card);
-            }
-        }
-    )
-}
-
 // Manage cards
 function openCard(card) {
     card.classList.add("opened-card");
     document.body.classList.add("overlay");
 
-    document.addEventListener('click', buildCloseCallback(card));
+    // Create a custom property to manage closing independently of the method from which I want to close it
+    card._closeCallback = function closeOnClickOutside(e) {
+        if (!card.contains(e.target)) {
+            closeCard(card);
+        }
+    }
+
+    document.addEventListener('click', card._closeCallback);
 }
 
 function closeCard(card) {
     card.classList.remove("opened-card");
     document.body.classList.remove("overlay");
 
-    document.removeEventListener('click', buildCloseCallback(card));
+    // Cleanup event listener and the card field
+    document.removeEventListener('click', card._closeCallback);
+    delete card._closeCallback
 }
 
 // Manage switching between cards
