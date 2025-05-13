@@ -1,22 +1,52 @@
 const cards = document.getElementsByClassName("card")
-let openedCard = null;
 
 Array.from(cards).forEach(card => {
-    card.addEventListener('click', () => openCard(card));
+    card._openCallback = function openOnClick() {
+        card.removeEventListener("click", openOnClick);
+        delete card._openCallback;
+        openCard(card);
+    };
+    card.addEventListener("click", card._openCallback);
 })
 
+// Manage cards
 function openCard(card) {
-    if (openedCard) closeCard(openedCard);
+    console.log("Open card")
+    console.log(card)
 
     card.classList.add("opened-card");
     document.body.classList.add("overlay");
-    openedCard = card;
+
+    // Create a custom property to manage closing independently of the method from which I want to close it
+    card._closeCallback = function closeOnClickOutside(e) {
+        if (!card.contains(e.target)) {
+            document.removeEventListener("click", closeOnClickOutside);
+            delete card._closeCallback;
+            closeCard(card);
+        }
+    }
+
+    document.addEventListener("click", card._closeCallback);
 }
 
-function closeCard() {
-    openedCard.classList.remove("opened-card");
+function closeCard(card) {
+    console.log("Close card")
+    console.log(card)
+
     document.body.classList.remove("overlay");
-    openedCard = null;
+    card.classList.remove("opened-card");
+
+    // Cleanup event listener and the card field
+    document.removeEventListener('click', card._closeCallback);
+    delete card._closeCallback;
+
+    // Add open callback again.
+    card._openCallback = function openOnClick() {
+        card.removeEventListener("click", openOnClick);
+        delete card._openCallback;
+        openCard(card);
+    };
+    card.addEventListener("click", card._openCallback);
 }
 
 // Manage switching between cards
@@ -36,9 +66,16 @@ Array.from(rightSwitches).forEach(rightSwitch => {
 })
 
 function switchToLeft(card) {
-    openCard(card.previousElementSibling);
+    let newCard = card.previousElementSibling;
+    replaceCardWith(card, newCard);
 }
 
 function switchToRight(card) {
-    openCard(card.nextElementSibling);
+    let newCard = card.nextElementSibling;
+    replaceCardWith(card, newCard);
+}
+
+function replaceCardWith(currentCard, newCard) {
+    closeCard(currentCard);
+    // openCard(newCard);
 }
