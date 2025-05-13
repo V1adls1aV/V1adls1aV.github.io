@@ -159,6 +159,12 @@
     border: solid black;
     transform: rotate(45deg);
     cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.opened-card .left-switch:hover,
+.opened-card .right-switch:hover {
+    border-color: #b343ed;
 }
 
 .opened-card .left-switch {
@@ -170,6 +176,8 @@
     right: 1.5rem;
     border-width: 3px 3px 0 0;
 }
+
+
 
 body.overlay {
     overflow: hidden;
