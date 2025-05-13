@@ -68,7 +68,6 @@
     max-width: min(70dvw, 1280px);
     max-height: 70dvh;
 
-    overflow-y: scroll;
     animation: scaleIn 0.3s ease forwards;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     backdrop-filter: none;
@@ -76,11 +75,18 @@
     flex-direction: column;
 }
 
+.opened-card .content {
+    overflow-y: scroll;
+}
+
 .opened-card .title {
     padding: 1.5rem;
     box-sizing: border-box;
     position: sticky;
+
     background-color: white;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
     top: 0;
 }
 
@@ -139,6 +145,28 @@
     flex-grow: 1;
 }
 
+.opened-card::before,
+.opened-card::after {
+    content: '';
+    position: absolute;
+    bottom: 1.5rem;
+    width: 1rem;
+    height: 1rem;
+    border: solid black;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+
+.opened-card::before {
+    left: 1.5rem;
+    border-width: 0 0 3px 3px;
+}
+
+.opened-card::after {
+    right: 1.5rem;
+    border-width: 3px 3px 0 0;
+}
+
 body.overlay {
     overflow: hidden;
 }
@@ -172,7 +200,6 @@ body.overlay::after {
 }
 
 @media (min-width: 1280px) {
-
     .card-gallery {
         columns: 4;
     }
