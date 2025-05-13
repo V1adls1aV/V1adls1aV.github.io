@@ -32,7 +32,6 @@ function updateButtonState(submitButton, state) {
     }
 }
 
-const form = document.querySelector("form[name='Cooperation form']");
 const textInputs = form.querySelectorAll("input[type='text'], textarea");
 const submitButton = form.querySelector('button[type="submit"]');
 
@@ -61,8 +60,6 @@ form.addEventListener("submit", async (event) => {
         await new Promise(resolve => setTimeout(resolve, 1500));
 
         updateButtonState(submitButton, 'sent');
-
-        form.reset();
     } catch (error) {
         updateButtonState(submitButton, 'default');
         console.error('Form submission failed:', error);
