@@ -68,7 +68,6 @@
     max-width: min(70dvw, 1280px);
     max-height: 70dvh;
 
-    overflow-y: scroll;
     animation: scaleIn 0.3s ease forwards;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     backdrop-filter: none;
@@ -76,11 +75,18 @@
     flex-direction: column;
 }
 
+.opened-card .content {
+    overflow-y: scroll;
+}
+
 .opened-card .title {
     padding: 1.5rem;
     box-sizing: border-box;
     position: sticky;
+
     background-color: white;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
     top: 0;
 }
 
@@ -94,7 +100,6 @@
     width: 100%;
     height: 50dvh;
     min-height: 30dvh;
-    position: block;
 }
 
 .opened-card .image-carousel::after {
@@ -139,6 +144,41 @@
     flex-grow: 1;
 }
 
+.left-switch,
+.right-switch {
+    display: block;
+}
+
+.opened-card .left-switch,
+.opened-card .right-switch {
+    display: block;
+    position: absolute;
+    bottom: 1.5rem;
+    width: 1rem;
+    height: 1rem;
+    border: solid black;
+    transform: rotate(45deg);
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.opened-card .left-switch:hover,
+.opened-card .right-switch:hover {
+    border-color: #b343ed;
+}
+
+.opened-card .left-switch {
+    left: 1.5rem;
+    border-width: 0 0 3px 3px;
+}
+
+.opened-card .right-switch {
+    right: 1.5rem;
+    border-width: 3px 3px 0 0;
+}
+
+
+
 body.overlay {
     overflow: hidden;
 }
@@ -172,7 +212,6 @@ body.overlay::after {
 }
 
 @media (min-width: 1280px) {
-
     .card-gallery {
         columns: 4;
     }
