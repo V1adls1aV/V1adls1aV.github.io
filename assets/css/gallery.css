@@ -146,7 +146,7 @@
 
 .left-switch,
 .right-switch {
-    display: none;
+    display: block;
 }
 
 .opened-card .left-switch,

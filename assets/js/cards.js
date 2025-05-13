@@ -4,22 +4,29 @@ Array.from(cards).forEach(card => {
     card.addEventListener('click', () => openCard(card));
 })
 
+function buildCloseCallback(card) {
+    return (
+        function closeOnClickOutside(e) {
+            if (!card.contains(e.target)) {
+                closeCard(card);
+            }
+        }
+    )
+}
+
 // Manage cards
 function openCard(card) {
-    card.classList.add("opened-card")
-    document.body.classList.add("overlay")
+    card.classList.add("opened-card");
+    document.body.classList.add("overlay");
 
-    document.addEventListener('click', function closeOnClickOutside(e) {
-        if (!card.contains(e.target)) {
-            closeCard(card);
-            document.removeEventListener('click', closeOnClickOutside);
-        }
-    })
+    document.addEventListener('click', buildCloseCallback(card));
 }
 
 function closeCard(card) {
-    card.classList.remove("opened-card")
-    document.body.classList.remove("overlay")
+    card.classList.remove("opened-card");
+    document.body.classList.remove("overlay");
+
+    document.removeEventListener('click', buildCloseCallback(card));
 }
 
 // Manage switching between cards
@@ -49,13 +56,6 @@ function switchToRight(card) {
 }
 
 function replaceCardWith(currentCard, newCard) {
-    currentCard.classList.remove("opened-card")
-    newCard.classList.add("opened-card")
-
-    document.addEventListener('click', function closeOnClickOutside(e) {
-        if (!newCard.contains(e.target)) {
-            closeCard(newCard);
-            document.removeEventListener('click', closeOnClickOutside);
-        }
-    })
+    closeCard(currentCard);
+    openCard(newCard);
 }
