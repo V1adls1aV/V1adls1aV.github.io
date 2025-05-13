@@ -1,3 +1,5 @@
+
+
 const cards = document.getElementsByClassName("card")
 const formLinks = document.getElementsByClassName("form-button")
 const form = document.getElementById("form")
@@ -11,10 +13,10 @@ Array.from(formLinks).forEach(anchor => {
 })
 
 // Manage cards
-function openCard(card) {    
+function openCard(card) {
     card.classList.add("opened-card")
     document.body.classList.add("overlay")
-    
+
     document.addEventListener('click', function closeOnClickOutside(e) {
         if (!card.contains(e.target)) {
             closeCard(card)
@@ -28,25 +30,28 @@ function closeCard(card) {
     document.body.classList.remove("overlay")
 }
 
+function switchToLeft(card) {
 
-// Manage form
-function openForm(e) {
-    if (e) {
-        e.stopPropagation()
+}
+
+function switchToRight(card) {
+
+}
+
+function findCardIndex(card) {
+    for (let i = 0; i < cards.length; i++) {
+
     }
+}
 
-    form.classList.add("opened-pop-up")
-    document.body.classList.add("overlay")
-    
+function replaceCardWith(currentCard, newCard) {
+    currentCard.classList.remove("opened-card")
+    newCard.classList.add("opened-card")
+
     document.addEventListener('click', function closeOnClickOutside(e) {
-        if (!form.contains(e.target)) {
-            closeForm()
+        if (!card.contains(e.target)) {
+            closeCard(newCard)
             document.removeEventListener('click', closeOnClickOutside)
         }
     })
-}
-
-function closeForm() {
-    form.classList.remove("opened-pop-up")
-    document.body.classList.remove("overlay")
 }
