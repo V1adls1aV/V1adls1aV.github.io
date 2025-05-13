@@ -1,15 +1,7 @@
-
-
 const cards = document.getElementsByClassName("card")
-const formLinks = document.getElementsByClassName("form-button")
-const form = document.getElementById("form")
 
 Array.from(cards).forEach(card => {
-    card.addEventListener('click', () => openCard(card))
-})
-
-Array.from(formLinks).forEach(anchor => {
-    anchor.addEventListener('click', (e) => openForm(e))
+    card.addEventListener('click', () => openCard(card));
 })
 
 // Manage cards
@@ -19,8 +11,8 @@ function openCard(card) {
 
     document.addEventListener('click', function closeOnClickOutside(e) {
         if (!card.contains(e.target)) {
-            closeCard(card)
-            document.removeEventListener('click', closeOnClickOutside)
+            closeCard(card);
+            document.removeEventListener('click', closeOnClickOutside);
         }
     })
 }
@@ -30,18 +22,53 @@ function closeCard(card) {
     document.body.classList.remove("overlay")
 }
 
-function switchToLeft(card) {
+// Manage switching between cards
+const leftSwitches = document.getElementsByClassName("left-switch");
+const rightSwitches = document.getElementsByClassName("right-switch");
 
+Array.from(leftSwitches).forEach(leftSwitch => {
+    leftSwitch.addEventListener('click', () => {
+        switchToLeft(leftSwitch.closest(".card"));
+    })
+})
+
+Array.from(rightSwitches).forEach(rightSwitch => {
+    rightSwitch.addEventListener('click', () => {
+        switchToRight(rightSwitch.closest(".card"));
+    })
+})
+
+function getPreviousElementByClass(element, className) {
+    let newElement = element.previousElementSibling;
+    while (newElement) {
+        if (newElement.classList && newElement.classList.contains(className)) {
+            return newElement;
+        }
+        newElement = newElement.previousElementSibling;
+    }
+    return null;
+}
+
+function getNextElementByClass(element, className) {
+    let newElement = element.nextElementSibling;
+    while (newElement) {
+        if (newElement.classList && newElement.classList.contains(className)) {
+            return newElement;
+        }
+        newElement = newElement.nextElementSibling;
+    }
+    return null;
+}
+
+
+function switchToLeft(card) {
+    let newCard = getPreviousElementByClass(card, "card")
+    replaceCardWith(card, newCard);
 }
 
 function switchToRight(card) {
-
-}
-
-function findCardIndex(card) {
-    for (let i = 0; i < cards.length; i++) {
-
-    }
+    let newCard = getNextElementByClass(card, "card");
+    replaceCardWith(card, newCard);
 }
 
 function replaceCardWith(currentCard, newCard) {
@@ -49,9 +76,9 @@ function replaceCardWith(currentCard, newCard) {
     newCard.classList.add("opened-card")
 
     document.addEventListener('click', function closeOnClickOutside(e) {
-        if (!card.contains(e.target)) {
-            closeCard(newCard)
-            document.removeEventListener('click', closeOnClickOutside)
+        if (!newCard.contains(e.target)) {
+            closeCard(newCard);
+            document.removeEventListener('click', closeOnClickOutside);
         }
     })
 }

@@ -100,7 +100,6 @@
     width: 100%;
     height: 50dvh;
     min-height: 30dvh;
-    position: block;
 }
 
 .opened-card .image-carousel::after {
@@ -145,9 +144,14 @@
     flex-grow: 1;
 }
 
-.opened-card::before,
-.opened-card::after {
-    content: '';
+.left-switch,
+.right-switch {
+    display: none;
+}
+
+.opened-card .left-switch,
+.opened-card .right-switch {
+    display: block;
     position: absolute;
     bottom: 1.5rem;
     width: 1rem;
@@ -157,12 +161,12 @@
     cursor: pointer;
 }
 
-.opened-card::before {
+.opened-card .left-switch {
     left: 1.5rem;
     border-width: 0 0 3px 3px;
 }
 
-.opened-card::after {
+.opened-card .right-switch {
     right: 1.5rem;
     border-width: 3px 3px 0 0;
 }
