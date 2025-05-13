@@ -38,36 +38,13 @@ Array.from(rightSwitches).forEach(rightSwitch => {
     })
 })
 
-function getPreviousElementByClass(element, className) {
-    let newElement = element.previousElementSibling;
-    while (newElement) {
-        if (newElement.classList && newElement.classList.contains(className)) {
-            return newElement;
-        }
-        newElement = newElement.previousElementSibling;
-    }
-    return null;
-}
-
-function getNextElementByClass(element, className) {
-    let newElement = element.nextElementSibling;
-    while (newElement) {
-        if (newElement.classList && newElement.classList.contains(className)) {
-            return newElement;
-        }
-        newElement = newElement.nextElementSibling;
-    }
-    return null;
-}
-
-
 function switchToLeft(card) {
-    let newCard = getPreviousElementByClass(card, "card")
+    let newCard = card.previousElementSibling;
     replaceCardWith(card, newCard);
 }
 
 function switchToRight(card) {
-    let newCard = getNextElementByClass(card, "card");
+    let newCard = card.nextElementSibling;
     replaceCardWith(card, newCard);
 }
 
