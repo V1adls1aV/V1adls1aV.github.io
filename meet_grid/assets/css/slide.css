@@ -1,0 +1,22 @@
+.slide {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.slide.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .slide {
+        height: auto;
+        min-height: 100vh;
+        overflow: auto;
+    }
+}
+

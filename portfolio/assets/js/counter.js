@@ -1,4 +1,4 @@
-const targetDate = new Date('2025-06-21T00:00:00+03:00');
+const targetDate = new Date('2025-07-07T00:00:00+03:00');
 
 function updateCounter() {
     const now = new Date();
@@ -7,7 +7,7 @@ function updateCounter() {
 
     if (timeDifference < 0) {
         if (counterElement) {
-            counterElement.textContent = "Event has started!";
+            counterElement.textContent = "Done.";
         }
         return;
     }

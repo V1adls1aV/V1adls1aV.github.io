@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Montserrat:bold,ital,wght@0,400..800&display=swap"
+        as="style">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meet Grid</title>
+  <meta name="description" content="MeetGrid site presentation. Choose suitable meeting time fast.">
+
+  <link rel="icon" href="assets/img/icon/logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/icon/logo.png">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/slide.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/content.css">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Montserrat:bold,ital,wght@0,400..800&display=swap">
+</head>
+
+<body>
+
+<header>
+  <div class="navbar">
+    <!-- Intro -->
+    <a class="navbar-item" data-slide="0">
+      The problem
+    </a>
+    <a class="navbar-item" data-slide="1">
+      Root cause
+    </a>
+    <a class="navbar-item" data-slide="2">
+      Solution
+    </a>
+
+    <!-- Functionality -->
+    <a class="navbar-item" data-slide="3">
+      Create topic
+    </a>
+    <a class="navbar-item" data-slide="4">
+      Choose time
+    </a>
+    <a class="navbar-item" data-slide="5">
+      Poll results
+    </a>
+
+    <!-- Tech stuff -->
+    <a class="navbar-item" data-slide="6">
+      Frontend
+    </a>
+    <a class="navbar-item" data-slide="7">
+      API
+    </a>
+  </div>
+</header>
+
+<main>
+  <div class="slide hidden" id="slide-0">
+    <div class="content-slide">
+      <div class="content-header">
+        <h1 class="gradient-heading">The problem</h1>
+      </div>
+      <ul class="content-list">
+        <li>Представим, вы захотели организовать вечеринку</li>
+        <li>Если друзей меньше 5, то вы определитесь быстро</li>
+        <li>Иначе, выбор времени затягивается на часы или даже <b>дни</b></li>
+        <li>В итоге из 15 человек не приходит и половины</li>
+      </ul>
+      <div class="content-image">
+        <picture>
+          <img src="assets/img/content/meet_in_park.jpeg" alt="Meet in park">
+        </picture>
+      </div>
+    </div>
+  </div>
+  <div class="slide hidden" id="slide-1">
+    <div class="content-slide">
+      <div class="content-header">
+        <h1 class="gradient-heading">Root cause</h1>
+      </div>
+      <ul class="content-list">
+        <li>Как вы решаете проблему сейчас?</li>
+        <li>Обычно – опрос в тг или обсуждение</li>
+        <li>Первопричина – недостаточная <b>точность и скорость</b> выбора</li>
+        <li>В итоге, время потрачено и выбирать уже <b>поздно</b></li>
+      </ul>
+      <div class="content-image">
+        <picture>
+          <img src="assets/img/content/lack_of_time.jpg" alt="Lack of time">
+        </picture>
+      </div>
+    </div>
+  </div>
+  <div class="slide hidden" id="slide-2">
+    <div class="content-slide">
+      <div class="content-header">
+        <h1 class="gradient-heading">MeetGrid</h1>
+      </div>
+      <ul class="content-list">
+        <li>Создай топик, укажи "доступное" время</li>
+        <li>Участники выбирают удобное им время</li>
+        <li>Приложение предложит наиболее подходящее время для встречи</li>
+        <li>И трать <b>минимум</b> времени на обсуждение!</li>
+      </ul>
+      <div class="content-image">
+        <picture>
+          <img src="assets/img/content/demo.png" alt="Demo">
+        </picture>
+      </div>
+    </div>
+  </div>
+  <div class="slide hidden" id="slide-3">
+    <div class="content-slide">
+      <div class="content-header">
+        <h1 class="gradient-heading">Create topic</h1>
+      </div>
+      <ul class="content-list">
+        <li>Создай топик</li>
+        <li>Укажи "доступное" время и дни недели</li>
+        <li>Пришли уникальную ссылку в чат</li>
+      </ul>
+      <div class="content-image">
+        <picture>
+          <img src="assets/img/content/topic_creation_view.png" alt="Topic creation view">
+        </picture>
+      </div>
+    </div>
+  </div>
+  <div class="slide hidden" id="slide-4">
+    <div class="content-slide">
+      <div class="content-header">
+        <h1 class="gradient-heading">Choose time</h1>
+      </div>
+      <ul class="content-list">
+        <li>Перейди по ссылке</li>
+        <li>Введи свое имя/ник</li>
+        <li>Выдели удобное время на календаре</li>
+      </ul>
+      <div class="content-image">
+        <picture>
+          <img src="assets/img/content/time_pick_view.png" alt="Time pick view">
+        </picture>
+      </div>
+    </div>
+  </div>
+  <div class="slide hidden" id="slide-5">
+    <div class="content-slide">
+      <div class="content-header">
+        <h1 class="gradient-heading">Poll results</h1>
+      </div>
+      <ul class="content-list">
+        <li>Приложение предложит лучшие отрезки времени</li>
+        <li>Они разделены на 3 группы: 90%, 70% и 50%</li>
+        <li>Итого, каждый участник потратил всего 2-3 минуты</li>
+      </ul>
+      <div class="content-image">
+        <picture>
+          <img src="assets/img/content/results_view.png" alt="Results view">
+        </picture>
+      </div>
+    </div>
+  </div>
+  <div class="slide hidden" id="slide-6">
+    <div class="content-slide">
+      <div class="content-header">
+        <h1 class="gradient-heading">Frontend</h1>
+      </div>
+      <ul class="content-list">
+        <li>React</li>
+        <li>React-Router</li>
+        <li>Ant Design</li>
+        <li>React-Big-Calendar</li>
+        <li style="opacity: 0.6;"><b>**</b>WebRTC / WebSocket</li>
+        <li style="opacity: 0.6;"><b>**</b>Telegram Mini-app</li>
+      </ul>
+      <div class="content-image">
+        <picture>
+          <img src="assets/img/content/calendar_template.png" alt="Big Calendar lib example">
+        </picture>
+      </div>
+    </div>
+  </div>
+  <div class="slide hidden" id="slide-7">
+    <div class="content-slide">
+      <div class="content-header">
+        <h1 class="gradient-heading">API</h1>
+      </div>
+      <ul class="content-list">
+        <li>Python</li>
+        <li>FastAPI</li>
+        <li>Redis</li>
+      </ul>
+      <div class="content-image">
+        <picture>
+          <img src="assets/img/content/openapi_schema.png" alt="OpenAPI schema">
+        </picture>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="assets/js/slide_switcher.js"></script>
+</body>
+</html>
