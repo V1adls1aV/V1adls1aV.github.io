@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>С Днём Матери 💐</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/butterflies.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/messages.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+    <!-- Butterfly Animation Component -->
+    <aside class="butterflies" aria-hidden="true">
+        <div class="butterfly">
+            <img src="assets/images/butterfly_3.png" alt="Бабочка">
+        </div>
+        <div class="butterfly">
+            <img src="assets/images/butterfly_2.png" alt="Бабочка">
+        </div>
+        <div class="butterfly">
+            <img src="assets/images/butterfly_2.png" alt="Бабочка">
+        </div>
+        <div class="butterfly">
+            <img src="assets/images/butterfly_1.png" alt="Бабочка">
+        </div>
+        <div class="butterfly">
+            <img src="assets/images/butterfly_3.png" alt="Бабочка">
+        </div>
+        <div class="butterfly">
+            <img src="assets/images/butterfly_1.png" alt="Бабочка">
+        </div>
+    </aside>
+
+    <!-- Main Content Container -->
+    <main class="content">
+        <!-- Messages Component -->
+        <section class="messages-container" role="region">
+            <!-- Message 1 -->
+            <article class="message" data-id="1" data-from="15" data-to="45">
+                <div class="message-text">
+                    Мама, прости, что бываем мы грубы
+                    <span class="message-emoji" aria-hidden="true">😭</span>
+                </div>
+            </article>
+
+            <!-- Message 2 -->
+            <article class="message" data-id="2" data-from="45" data-to="65">
+                <div class="message-text">
+                    И что не всегда терпеливы, как ты
+                    <span class="message-emoji" aria-hidden="true">🤗</span>
+                </div>
+            </article>
+
+            <!-- Message 3 -->
+            <article class="message" data-id="3" data-from="65" data-to="85">
+                <div class="message-text">
+                    Большою любовью наш голос пропитан
+                    <span class="message-emoji" aria-hidden="true">🥰</span>
+                </div>
+            </article>
+            
+            <!-- Message 4 -->
+            <article class="message" data-id="4" data-from="85" data-to="100">
+                <div class="message-text">
+                    А сердце готово выпрыгнуть из груди
+                    <img src="assets/images/bouquet_2.png" alt="Букет" class="message-emoji bouquet-image" aria-hidden="true">
+                </div>
+            </article>
+        </section>
+
+        <!-- Header Component -->
+        <header class="header" data-from="0" data-to="15">
+            <h1>С Днём Матери <img src="assets/images/bouquet_1.png" alt="Букет" class="bouquet-image"></h1>
+            <p>Прокрути вниз...</p>
+        </header>
+
+        <!-- Spacer for scroll height -->
+        <div class="spacer" aria-hidden="true"></div>
+    </main>
+
+    <!-- JavaScript Module -->
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

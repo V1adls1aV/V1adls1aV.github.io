@@ -1,0 +1,60 @@
+/* Messages component styles */
+.messages-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(80%, 500px);
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+    margin: 0;
+}
+
+.message {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(calc(100px - 50%)) scale(0.67);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.message.active {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+.message.exiting {
+    opacity: 0;
+    transform: translateY(calc(-100px - 50%)) scale(0.67);
+}
+
+.message-text {
+    font-size: 32px;
+    line-height: 1.6;
+    color: rgb(100, 50, 100);
+    margin-bottom: 20px;
+    font-style: italic;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(150, 50, 120, 0.15);
+    backdrop-filter: blur(10px);
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+    transform-origin: center center;
+}
+
+.message-emoji {
+    font-size: 40px;
+    display: block;
+    font-style: normal;
+}
+
+.message-emoji.bouquet-image {
+    margin: auto;
+    height: 120px;
+    width: auto;
+}
